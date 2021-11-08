@@ -1,1 +1,1 @@
-# VerificacionJU, in this repo i will storing my verification activities
+# VerificacionJU, in this repository i will be storing my verification activities
