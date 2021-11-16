@@ -1,10 +1,11 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
-add wave -noupdate /Muxparam_tb/bus1
-add wave -noupdate /Muxparam_tb/enum1
-add wave -noupdate /Muxparam_tb/sel
+add wave -noupdate /TB_FP_MC/clk
+add wave -noupdate /TB_FP_MC/d
+add wave -noupdate /TB_FP_MC/q
+add wave -noupdate /TB_FP_MC/rst_n
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {80 ns} 0}
+WaveRestoreCursors {{Cursor 1} {1195 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 150
 configure wave -valuecolwidth 100
@@ -18,6 +19,6 @@ configure wave -gridoffset 0
 configure wave -gridperiod 1
 configure wave -griddelta 40
 configure wave -timeline 0
-configure wave -timelineunits ns
+configure wave -timelineunits ps
 update
-WaveRestoreZoom {0 ns} {1 us}
+WaveRestoreZoom {1050 ps} {2050 ps}
