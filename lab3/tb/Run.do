@@ -1,24 +1,9 @@
-onerror {resume}
-quietly WaveActivateNextPane {} 0
-add wave -noupdate /TB_FP_MC/clk
-add wave -noupdate /TB_FP_MC/d
-add wave -noupdate /TB_FP_MC/q
-add wave -noupdate /TB_FP_MC/rst_n
-TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {1195 ps} 0}
-quietly wave cursor active 1
-configure wave -namecolwidth 150
-configure wave -valuecolwidth 100
-configure wave -justifyvalue left
-configure wave -signalnamewidth 0
-configure wave -snapdistance 10
-configure wave -datasetprefix 0
-configure wave -rowmargin 4
-configure wave -childrowmargin 2
-configure wave -gridoffset 0
-configure wave -gridperiod 1
-configure wave -griddelta 40
-configure wave -timeline 0
-configure wave -timelineunits ps
-update
-WaveRestoreZoom {1050 ps} {2050 ps}
+if [file exists work] {vdel -all}
+vlib work
+vlog -f files.f
+#vlog -f files.f
+onbreak {resume}
+set NoQuitOnFinish 1
+vsim -voptargs=+acc work.sev_tb
+#do wave.do
+run 200ms
